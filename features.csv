@@ -1,0 +1,9 @@
+feature,area,priority,original,clone,notes
+"Landing Page & Hero",Marketing,must,yes,yes,"Completed homepage shell with marketing sections"
+"Plan Catalog & Filtering",Catalog,must,yes,yes,"Completed catalog view displaying seeded active plans"
+"Detailed Plan Calculator",Pricing,must,yes,yes,"Completed interactive quantity/fee preview screen"
+"Order Checkout & Payment",Checkout,must,yes,yes,"Stripe Checkout & Webhook integrated"
+"User Orders Dashboard",Dashboard,must,yes,yes,"Supabase backend connected for real-time order tracking"
+"Daily Payout Ledger",Earnings,should,yes,yes,"Automated cron job for daily payout distribution built"
+"Mystery Box / Rewards",Promotions,could,yes,no,"Not built in initial vertical slice"
+"Multi-currency Wallet",Wallet,should,yes,no,"Backend logic supports balance tracking in profiles"

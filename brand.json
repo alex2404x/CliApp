@@ -1,0 +1,54 @@
+{
+  "name": "Hashnest",
+  "avoid": ["Bitdeer", "Original Name"],
+  "domains": ["hashnest.com"],
+  "colors": ["#2d3748", "#4a5568", "#f6ad55", "#1a202c", "#0f172a", "#f8fafc", "#94a3b8", "#2d3748"],
+  "logo": {
+    "brief": "A secure, approachable digital mining facility represented as an abstracted bitcoin symbol with roots of growth, suggesting trust and accessibility in cloud mining.",
+    "type": "symbol-wordmark",
+    "specifications": {
+      "favicon": {"size": 16, "color": "#f8fafc"},
+      "appIcon": {"size": 1024, "format": "png", "background": "#f6ad55"},
+      "socialImage": {"width": 1200, "height": 630, "background": "#1a202c"}
+    },
+    "avoid": ["#006bff", "#0070ff", "#0056b3", "#3385ff"]
+  },
+  "voice": {
+    "persona": ["Empowered", "Transparent", "Accessible"],
+    "doDontPairs": [
+      {"do": "Explain complex concepts in simple terms", "dont": "Use crypto jargon or industry acronyms"},
+      {"do": "Provide clear pricing breakdowns", "dont": "Hide fees in small print"},
+      {"do": "Show real-time mining progress", "dont": "Use vague 'active mining' descriptions"},
+      {"do": "Offer 24/7 support access", "dont": "Just have an email address"},
+      {"do": "Celebrate milestones", "dont": "Be formal and distant"}
+    ],
+    "rewrites": [
+      {"context": "sign_up", "original": "Create an account", "new": "Start mining today"},
+      {"context": "sign_up", "original": "Sign up", "new": "Begin your mining journey"},
+      {"context": "cta_explore", "original": "Start Mining", "new": "Select your plan"},
+      {"context": "cta_explore", "original": "Explore Plans", "new": "Choose your contract"},
+      {"context": "empty_state_contracts", "original": "No active contracts", "new": "No mining contracts yet - let's start"},
+      {"context": "empty_state_orders", "original": "No orders", "new": "Your mining contracts will appear here"},
+      {"context": "error_balance", "original": "Insufficient balance", "new": "Your balance doesn't cover this contract"},
+      {"context": "error_payment", "original": "Payment failed", "new": "Unable to process payment - check your balance"},
+      {"context": "confirmation_success", "original": "Payment successful", "new": "Your contract is active! Mining has started"},
+      {"context": "confirmation_order", "original": "Order placed", "new": "Contract activated successfully"}
+    ]
+  },
+  "status": {
+    "trademark": {
+      "us": "pending",
+      "eu": "pending",
+      "ca": "pending",
+      "global": "pending"
+    },
+    "domain": "pending",
+    "appStore": "pending",
+    "handles": {
+      "x": "pending",
+      "instagram": "pending",
+      "github": "pending"
+    },
+    "webSearch": "pending"
+  }
+}

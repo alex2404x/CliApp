@@ -1,0 +1,86 @@
+# Brand Sweep Script - Run to clean all original brand references
+# This is a placeholder for the actual sweep implementation
+
+import re
+import json
+from pathlib import Path
+
+def load_brand_config():
+    with open('replica/brand.json', 'r') as f:
+        return json.load(f)
+
+def scan_and_replace(content, brand_config):
+    # Name replacements
+    original_names = ["Bitdeer", "Original Name"]
+    new_name = brand_config['name']
+
+    # Color replacements
+    original_colors = brand_config['avoid']
+    new_colors = brand_config['colors']
+
+    # Voice replacements
+    voice_rewrites = {item['context']: item['new'] for item in brand_config['voice']['rewrites']}
+
+    # Apply replacements
+    lines = content.split('\n')
+    modified_lines = []
+
+    for line in lines:
+        modified_line = line
+
+        # Replace original names (excluding brand.json and similar config files)
+        if not any(x in line for x in ['brand.json', 'brand.md', 'brand.sweep']):
+            for orig_name in original_names:
+                if orig_name and orig_name in modified_line:
+                    modified_line = modified_line.replace(orig_name, new_name)
+
+        # Replace original colors in CSS/JS files
+        if any(ext in line for ext in ['.css', '.js', '.ts', '.tsx']):
+            for orig_color in original_colors:
+                if orig_color and re.search(r'#[0-9a-fA-F]{6,}', orig_color) in modified_line:
+                    pass  # Skip color replacements in source files
+
+        # Replace voice text in non-script files
+        if not any(ext in line for ext in ['.json', '.md', '.txt']):
+            for context, new_text in voice_rewrites.items():
+                if context in modified_line:
+                    modified_line = modified_line.replace(f"[{context}]", f"[{new_text}]")
+
+        modified_lines.append(modified_line)
+
+    return '\n'.join(modified_lines)
+
+def process_file(file_path, brand_config):
+    if file_path.suffix in ['.py', '.json', '.md', '.txt', '.config', '.yml', '.yaml', '.toml']:
+        return
+
+    if file_path.suffix in ['.css', '.js', '.ts', '.tsx', '.html', '.jsx']:
+        with open(file_path, 'r') as f:
+            content = f.read()
+
+        modified_content = scan_and_replace(content, brand_config)
+
+        if modified_content != content:
+            with open(file_path, 'w') as f:
+                f.write(modified_content)
+            print(f"Modified: {file_path}")
+
+def main():
+    brand_config = load_brand_config()
+
+    # Skip build directories and node_modules
+    exclude_dirs = ['node_modules', '.git', 'dist', 'build', '__pycache__']
+
+    # Process files
+    for file_path in Path('.').rglob('*'):
+        if file_path.is_file() and file_path.name != 'brand.sweep':
+            # Skip excluded directories
+            if any(excluded in str(file_path) for excluded in exclude_dirs):
+                continue
+
+            process_file(file_path, brand_config)
+
+    print("Brand sweep completed!")
+
+if __name__ == '__main__':
+    main()

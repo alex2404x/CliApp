@@ -1,0 +1,16 @@
+{
+  "avoid": ["Bitdeer", "Bitdeer Mining", "Bitdeer.com", "Original Name"],
+  "app_store": {
+    "name": "Hashnest",
+    "subtitle": "Cloud mining made simple",
+    "promotional_text": "Start mining cryptocurrency without buying hardware.",
+    "description": "Hashnest is a cloud mining platform that lets you mine cryptocurrency without hardware. Select a plan, complete payment, and receive daily rewards to your wallet.",
+    "keywords": "crypto mining, cloud mining, hashrate, bitcoin mining, cryptocurrency"
+  },
+  "google_play": {
+    "title": "Hashnest",
+    "short_description": "Start mining cryptocurrency without buying hardware.",
+    "full_description": "Hashnest is a cloud mining platform that lets you mine cryptocurrency without hardware. Select a plan, complete payment, and receive daily rewards to your wallet.",
+    "whats_new": "New: Daily payouts and improved fee transparency."
+  }
+}
