@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/Button';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 import { useState } from 'react';
 
 export default function LoginPage() {
@@ -15,7 +15,7 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { error } = await getSupabase().auth.signInWithPassword({
         email,
         password,
       });
