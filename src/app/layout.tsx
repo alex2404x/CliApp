@@ -9,13 +9,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </Link>
         <nav className="flex space-x-6 text-sm">
           <Link href="/cloud-mining" className="hover:text-accent">Home</Link>
-          <Link href="/cloud-mining/plans" className="hover:text-accent">Mining Plans</Link>
-          <Link href="/user/orders" className="hover:text-accent">Dashboard</Link>
+          <Link href="/cloud-mining/plans" className="hover:text-accent">Planes</Link>
+          <Link href="/user/orders" className="hover:text-accent">Panel</Link>
+          <Link href="/privacy" className="hover:text-accent">Privacidad</Link>
+          <Link href="/terms" className="hover:text-accent">Términos</Link>
         </nav>
       </header>
       <main className="flex-1 max-w-7xl w-full mx-auto p-6">{children}</main>
       <footer className="border-t border-border bg-surface px-6 py-4 text-center text-xs text-text-muted">
-        &copy; {new Date().getFullYear()} CloudMine Platform. All rights reserved.
+        &copy; {new Date().getFullYear()} Hashnest. Todos los derechos reservados.
       </footer>
     </div>
   );
