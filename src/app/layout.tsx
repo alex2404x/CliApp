@@ -1,24 +1,19 @@
 import Link from 'next/link';
+import '../../design/tokens.css';
+import './globals.css';
+
+export const metadata = { title: 'CloudMine Platform', description: 'Explore cloud mining plans and review your contracts.' };
+export const viewport = { themeColor: '#0f172a' };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="min-h-screen bg-bg text-text flex flex-col">
-      <header className="border-b border-border bg-surface px-6 py-4 flex items-center justify-between">
-        <Link href="/cloud-mining" className="text-xl font-bold text-accent">
-          CloudMine Platform
-        </Link>
-        <nav className="flex space-x-6 text-sm">
-          <Link href="/cloud-mining" className="hover:text-accent">Home</Link>
-          <Link href="/cloud-mining/plans" className="hover:text-accent">Planes</Link>
-          <Link href="/user/orders" className="hover:text-accent">Panel</Link>
-          <Link href="/privacy" className="hover:text-accent">Privacidad</Link>
-          <Link href="/terms" className="hover:text-accent">Términos</Link>
-        </nav>
-      </header>
-      <main className="flex-1 max-w-7xl w-full mx-auto p-6">{children}</main>
-      <footer className="border-t border-border bg-surface px-6 py-4 text-center text-xs text-text-muted">
-        &copy; {new Date().getFullYear()} Hashnest. Todos los derechos reservados.
-      </footer>
-    </div>
-  );
+  return <html lang="es"><body className="flex min-h-screen flex-col">
+    <header className="flex flex-wrap items-center justify-between gap-4 border-b border-border bg-surface px-6 py-4">
+      <Link href="/cloud-mining" className="text-xl font-bold text-accent">CloudMine Platform</Link>
+      <nav aria-label="Main navigation" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        {Object.entries({'/cloud-mining':'Inicio','/cloud-mining/plans':'Catálogo','/user/orders':'Producción','/privacy':'Privacidad','/terms':'Términos'}).map(([href,label])=><Link className="hover:text-accent" href={href} key={href}>{label}</Link>)}
+      </nav>
+    </header>
+    <main className="mx-auto w-full max-w-7xl flex-1 p-4 sm:p-6">{children}</main>
+    <footer className="border-t border-border bg-surface px-6 py-4 text-center text-xs text-text-muted">&copy; {new Date().getFullYear()} Hashnest. All rights reserved.</footer>
+  </body></html>;
 }
